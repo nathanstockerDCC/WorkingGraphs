@@ -39,7 +39,19 @@ var layout = {
 	width: 520,
 	height: 400,
 	shapes: [
-		//Line Horizontal
+		// Short-term
+		{
+			type: 'line',
+			x0: -0.5,
+			x1: 0.5,
+			y0: 1000,
+			y1: 1000,
+			line: {
+				color: 'rgb(0, 0, 0)',
+				width: 2,
+				dash: 'solid'
+			}
+		},
 		{
 			type: 'line',
 			x0: -0.5,
@@ -47,9 +59,21 @@ var layout = {
 			y0: 2000,
 			y1: 2000,
 			line: {
-				color: 'rgb(150, 150, 150',
-				width: 4,
-				dash: 'dashdot'
+				color: 'rgb(0, 0, 0)',
+				width: 2,
+				dash: 'dash'
+			}
+		},
+		{
+			type: 'line',
+			x0: -0.5,
+			x1: 0.5,
+			y0: 3000,
+			y1: 3000,
+			line: {
+				color: 'rgb(0, 0, 0)',
+				width: 2,
+				dash: 'dot'
 			}
 		}
 	]
