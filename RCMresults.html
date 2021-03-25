@@ -15,6 +15,9 @@
 		var Medium_growth_projection = [1781, 5717, 11135];
 		var High_growth_projection = [2337, 8136, 19811];
 
+		var capacityDict = {"ShortTermTwoGP": 1677.36833100005, "ShortTermVarTwo": 3112.18836300014, "ShortTermAppeals": 4112.18836300014, "MediumTermTwoGP": 3829.14883266309, "MediumTermVarTwo": 6865.71098712937, "MediumTermAppeals": 7865.71098712937, "LongTermTwoGP": 5867.35586545737, "LongTermVarTwo": 10075.7365495385, "LongTermAppeals": 11075.7365495385};
+		
+		
 		var data = [{
 				x: xAxisData,
 				y: Low_growth_projection,
@@ -34,7 +37,7 @@
 				type: 'bar'
 				}];
 
-			
+		
 		var layout = {
 			title: 'Capacity sufficiency by growth scenario',
 			legend: {
@@ -46,13 +49,12 @@
 			yaxis:{tickformat: ',g'},
 					
 			shapes: [
-				// Short-term
 				{
 					type: 'line',
 					x0: -0.4,
 					x1: 0.4,
-					y0: 1000,
-					y1: 1000,
+					y0: capacityDict["ShortTermTwoGP"],
+					y1: capacityDict["ShortTermTwoGP"],
 					opacity: 0.8,
 					line: {
 						color: 'rgb(0, 0, 0)',
@@ -64,8 +66,8 @@
 					type: 'line',
 					x0: -0.4,
 					x1: 0.4,
-					y0: 2000,
-					y1: 2000,
+					y0: capacityDict["ShortTermVarTwo"],
+					y1: capacityDict["ShortTermVarTwo"],
 					line: {
 						color: 'rgb(0, 0, 0)',
 						opacity: 0.8,
@@ -77,8 +79,86 @@
 					type: 'line',
 					x0: -0.4,
 					x1: 0.4,
-					y0: 3000,
-					y1: 3000,
+					y0: capacityDict["ShortTermAppeals"],
+					y1: capacityDict["ShortTermAppeals"],
+					opacity: 0.8,
+					line: {
+						color: 'rgb(0, 0, 0)',
+						width: 2,
+						dash: 'dot'
+					}
+				},
+				{
+					type: 'line',
+					x0: -0.4,
+					x1: 0.4,
+					y0: capacityDict["MediumTermTwoGP"],
+					y1: capacityDict["MediumTermTwoGP"],
+					opacity: 0.8,
+					line: {
+						color: 'rgb(0, 0, 0)',
+						width: 2,
+						dash: 'solid'
+					}
+				},
+				{
+					type: 'line',
+					x0: -0.4,
+					x1: 0.4,
+					y0: capacityDict["MediumTermVarTwo"],
+					y1: capacityDict["MediumTermVarTwo"],
+					line: {
+						color: 'rgb(0, 0, 0)',
+						opacity: 0.8,
+						width: 2,
+						dash: 'dash'
+					}
+				},
+				{
+					type: 'line',
+					x0: -0.4,
+					x1: 0.4,
+					y0: capacityDict["MediumTermAppeals"],
+					y1: capacityDict["MediumTermAppeals"],
+					opacity: 0.8,
+					line: {
+						color: 'rgb(0, 0, 0)',
+						width: 2,
+						dash: 'dot'
+					}
+				},
+				{
+					type: 'line',
+					x0: -0.4,
+					x1: 0.4,
+					y0: capacityDict["LongTermTwoGP"],
+					y1: capacityDict["LongTermTwoGP"],
+					opacity: 0.8,
+					line: {
+						color: 'rgb(0, 0, 0)',
+						width: 2,
+						dash: 'solid'
+					}
+				},
+				{
+					type: 'line',
+					x0: -0.4,
+					x1: 0.4,
+					y0: capacityDict["LongTermVarTwo"],
+					y1: capacityDict["LongTermVarTwo"],
+					line: {
+						color: 'rgb(0, 0, 0)',
+						opacity: 0.8,
+						width: 2,
+						dash: 'dash'
+					}
+				},
+				{
+					type: 'line',
+					x0: -0.4,
+					x1: 0.4,
+					y0: capacityDict["LongTermAppeals"],
+					y1: capacityDict["LongTermAppeals"],
 					opacity: 0.8,
 					line: {
 						color: 'rgb(0, 0, 0)',
