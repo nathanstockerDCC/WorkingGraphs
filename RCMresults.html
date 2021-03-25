@@ -5,86 +5,88 @@
 
 <body>
 	
-	<div id="myDiv" style="width: 520px; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>
+	<div id="myDiv" style="width: 600px; height: 400px;">
+	</div>
+
 	<script>
+			
+		var xAxisData = ["Short-term", "Medium-term", "Long-term"];
+		var Low_growth_projection = [1458, 4518, 7655];
+		var Medium_growth_projection = [1781, 5717, 11135];
+		var High_growth_projection = [2337, 8136, 19811];
 
-	
-var xAxisData = ["Short-term", "Medium-term", "Long-term"];
-var Low_growth_projection = [1458, 4518, 7655];
-var Medium_growth_projection = [1781, 5717, 11135];
-var High_growth_projection = [2337, 8136, 19811];
+		var data = [{
+				x: xAxisData,
+				y: Low_growth_projection,
+				name: "Low growth projection",
+				type: 'bar'
+				
+				},{
+				x: xAxisData,
+				y: Medium_growth_projection,
+				name: "Medium growth projection",
+				type: 'bar'
+				
+				},{
+				x: xAxisData,
+				y: High_growth_projection,
+				name: "High growth projection",
+				type: 'bar'
+				}];
 
-var data = [{
-		x: xAxisData,
-		y: Low_growth_projection,
-		name: "Low growth projection",
-		type: 'bar'
-		
-        },{
-		x: xAxisData,
-		y: Medium_growth_projection,
-		name: "Medium growth projection",
-		type: 'bar'
-		
-        },{
-		x: xAxisData,
-		y: High_growth_projection,
-		name: "High growth projection",
-		type: 'bar'
-		}];
-
-	
-var layout = {
-	title: 'Capacity sufficiency by growth scenario',
-	width: 520,
-	height: 400,
-	shapes: [
-		// Short-term
-		{
-			type: 'line',
-			x0: -0.5,
-			x1: 0.5,
-			y0: 1000,
-			y1: 1000,
-			line: {
-				color: 'rgb(0, 0, 0)',
-				width: 2,
-				dash: 'solid'
-			}
-		},
-		{
-			type: 'line',
-			x0: -0.5,
-			x1: 0.5,
-			y0: 2000,
-			y1: 2000,
-			line: {
-				color: 'rgb(0, 0, 0)',
-				width: 2,
-				dash: 'dash'
-			}
-		},
-		{
-			type: 'line',
-			x0: -0.5,
-			x1: 0.5,
-			y0: 3000,
-			y1: 3000,
-			line: {
-				color: 'rgb(0, 0, 0)',
-				width: 2,
-				dash: 'dot'
-			}
-		}
-	]
-};
-
-
-Plotly.plot('myDiv', data, layout);
+			
+		var layout = {
+			title: 'Capacity sufficiency by growth scenario',
+			legend: {
+				orientation: 'h',
+				y: '-0.25',
+				x: '0.5',
+				xanchor: 'center'
+			},
+					
+			shapes: [
+				// Short-term
+				{
+					type: 'line',
+					x0: -0.5,
+					x1: 0.5,
+					y0: 1000,
+					y1: 1000,
+					line: {
+						color: 'rgb(0, 0, 0)',
+						width: 2,
+						dash: 'solid'
+					}
+				},
+				{
+					type: 'line',
+					x0: -0.5,
+					x1: 0.5,
+					y0: 2000,
+					y1: 2000,
+					line: {
+						color: 'rgb(0, 0, 0)',
+						width: 2,
+						dash: 'dash'
+					}
+				},
+				{
+					type: 'line',
+					x0: -0.5,
+					x1: 0.5,
+					y0: 3000,
+					y1: 3000,
+					line: {
+						color: 'rgb(0, 0, 0)',
+						width: 2,
+						dash: 'dot'
+					}
+				}
+			]
+		};
 
 
-
-
+		Plotly.plot('myDiv', data, layout);
 
 	</script>
 </body>
