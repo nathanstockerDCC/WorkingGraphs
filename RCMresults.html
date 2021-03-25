@@ -1,53 +1,66 @@
 <head>
-  <!-- Plotly.js -->
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<!-- Plotly.js -->
+	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
 <body>
-  
-  <div id="myDiv" style="width: 520px; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>
-  <script>
+	
+	<div id="myDiv" style="width: 520px; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>
+	<script>
 
-var trace1 = {
-  x: [2, 3.5, 6],
-  y: [1, 1.5, 1],
-  mode: 'text'
-};
+	
+	xAxisData: ["Short-term", "Medium-term", "Long-term"];
+	Low_growth_projection: [1458, 4518, 7655];
+	Medium_growth_projection: [1781, 5717, 11135];
+	High_growth_projection: [2337, 8136, 19811];
 
+var data = [{
+		x: xAxisData,
+		y: Low_growth_projection,
+		name: "Low growth projection",
+		type: 'bar'
+		
+        },{
+		x: xAxisData,
+		y: Medium_growth_projection,
+		name: "Medium growth projection",
+		type: 'bar'
+		
+        },{
+		x: xAxisData,
+		y: High_growth_projection,
+		name: "High growth projection",
+		type: 'bar'
+		}];
+
+	
 var layout = {
-  title: 'Vertical and Horizontal Lines Positioned Relative to the Axes',
-  xaxis: {
-    range: [0, 7]
-  },
-  yaxis: {
-    range: [0, 2.5]
-  },
-  width: 520,
-  height: 400,
-  shapes: [
-    //Line Horizontal
-    {
-      type: 'line',
-      x0: 2,
-      y0: 2,
-      x1: 5,
-      y1: 2,
-      line: {
-        color: 'rgb(50, 171, 96)',
-        width: 4,
-        dash: 'dashdot'
-      }
-    }
-  ]
+	title: 'Capacity sufficiency by growth scenario',
+	width: 520,
+	height: 400,
+	shapes: [
+		//Line Horizontal
+		{
+			type: 'line',
+			x0: 2,
+			y0: 2,
+			x1: 5,
+			y1: 2,
+			line: {
+				color: 'rgb(50, 171, 96)',
+				width: 4,
+				dash: 'dashdot'
+			}
+		}
+	]
 };
 
-var data = [trace1];
 
-Plotly.plot('myDiv', data, layout, {showSendToCloud:true});
-
+Plotly.plot('myDiv', data, layout);
 
 
 
 
-  </script>
+
+	</script>
 </body>
