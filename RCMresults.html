@@ -1,0 +1,53 @@
+<head>
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+  
+  <div id="myDiv" style="width: 520px; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>
+  <script>
+
+var trace1 = {
+  x: [2, 3.5, 6],
+  y: [1, 1.5, 1],
+  mode: 'text'
+};
+
+var layout = {
+  title: 'Vertical and Horizontal Lines Positioned Relative to the Axes',
+  xaxis: {
+    range: [0, 7]
+  },
+  yaxis: {
+    range: [0, 2.5]
+  },
+  width: 520,
+  height: 400,
+  shapes: [
+    //Line Horizontal
+    {
+      type: 'line',
+      x0: 2,
+      y0: 2,
+      x1: 5,
+      y1: 2,
+      line: {
+        color: 'rgb(50, 171, 96)',
+        width: 4,
+        dash: 'dashdot'
+      }
+    }
+  ]
+};
+
+var data = [trace1];
+
+Plotly.plot('myDiv', data, layout, {showSendToCloud:true});
+
+
+
+
+
+  </script>
+</body>
