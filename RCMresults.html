@@ -11,12 +11,17 @@
 	<script>
 			
 		var xAxisData = ["Short-term", "Medium-term", "Long-term"];
-		var Low_growth_projection = [1458, 4518, 7655];
-		var Medium_growth_projection = [1781, 5717, 11135];
-		var High_growth_projection = [2337, 8136, 19811];
-
-		var capacityDict = {"ShortTermTwoGP": 1872, "ShortTermVarTwo": 3031, "ShortTermAppeals": 4031, "MediumTermTwoGP": 4010, "MediumTermVarTwo": 6844, "MediumTermAppeals": 7844, "LongTermTwoGP": 6351, "LongTermVarTwo": 10280, "LongTermAppeals": 11280};
+		var Low_growth_projection = [1483, 4591, 7760];
+		var Medium_growth_projection = [1814, 5822, 11334];
+		var High_growth_projection = [2386, 8311, 20248];
 		
+		var TwoGPcapacityDict = {"ShortTermTwoGP": 1871, "MediumTermTwoGP": 3903, "LongTermTwoGP": 5751};
+		var VarTwoCapacityDict = {"ShortTermVarTwo": 2864, "MediumTermVarTwo": 6225, "LongTermVarTwo": 8131};
+		var AppealsCapacityDict = {"ShortTermAppeals": 3864, "MediumTermAppeals": 7225, "LongTermAppeals": 9131};
+
+		var capacityDict = TwoGPcapacityDict;
+		capacityDict.update(VarTwoCapacityDict);
+		capacityDict.update(AppealsCapacityDict);
 		
 		var data = [{
 				x: xAxisData,
