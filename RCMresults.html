@@ -19,9 +19,22 @@
 		var VarTwoCapacityDict = {"ShortTermVarTwo": 2864, "MediumTermVarTwo": 6225, "LongTermVarTwo": 8131};
 		var AppealsCapacityDict = {"ShortTermAppeals": 3864, "MediumTermAppeals": 7225, "LongTermAppeals": 9131};
 
-		var capacityDict = TwoGPcapacityDict;
-		capacityDict.update(VarTwoCapacityDict);
-		capacityDict.update(AppealsCapacityDict);
+		capacityDict = {}
+
+
+		for (const [key, value] of Object.entries(TwoGPcapacityDict)) {
+		  capacityDict[key] = value;
+		}
+
+		for (const [key, value] of Object.entries(VarTwoCapacityDict)) {
+		  capacityDict[key] = value;
+		}
+
+		for (const [key, value] of Object.entries(AppealsCapacityDict)) {
+		  capacityDict[key] = value;
+		}
+
+		console.log(capacityDict)
 		
 		var data = [{
 				x: xAxisData,
