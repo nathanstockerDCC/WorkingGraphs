@@ -1,8 +1,8 @@
 <head>
 	<!-- Load plotly.js into the DOM -->
 	<script src='https://cdn.plot.ly/plotly-2.8.3.min.js'></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="jquery-csv.js"></script>
+	<script src="https://d3js.org/d3.v3.min.js"  charset="utf-8"></script>
+
 </head>
 
 <body>
@@ -10,9 +10,10 @@
 
 <script>
 	
-CSVfile = "https://raw.githubusercontent.com/nathanstockerDCC/WorkingGraphs/main/CommutingPatterns.csv";
-
-var CSVdata = $.csv.toArrays(CSVfile);
+d3.text("https://raw.githubusercontent.com/nathanstockerDCC/WorkingGraphs/main/CommutingPatterns.csv", function(data) {
+    var parsedCSV = d3.csv.parseRows(data);
+	console.log(parsedCSV[2])  
+});
 	
 var data = {
   type: "sankey",
