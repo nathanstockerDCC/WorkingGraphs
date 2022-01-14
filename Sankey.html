@@ -11,12 +11,9 @@
 	
 <script>
 	
-CSVfile = "https://raw.githubusercontent.com/nathanstockerDCC/WorkingGraphs/main/CommutingPatterns.csv"
+CSVfile = "https://raw.githubusercontent.com/nathanstockerDCC/WorkingGraphs/main/CommutingPatterns.csv";
 
-$.get( CSVfile, function( CSVdata) {
-      data = $.csv.toArray(CSVdata);
-      console.log(data)
-  });
+var CSVdata = $.csv.toArrays(CSVfile);
 	
 var data = {
   type: "sankey",
