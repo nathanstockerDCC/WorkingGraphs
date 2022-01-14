@@ -6,8 +6,20 @@
 <body>
 	<div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
 
+<script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" ></script>
+<script src="jquery-csv.js"></script>
+	
 <script>
-  
+	
+CSVfile = "https://raw.githubusercontent.com/nathanstockerDCC/WorkingGraphs/main/CommutingPatterns.csv"
+
+$.get( CSVfile, function( CSVdata) {
+     // CSVdata is populated with the file contents
+     / ready to be converted into an Array
+      data = $.csv.toArray(CSVdata);
+      console.log(data)
+  });
+	
 var data = {
   type: "sankey",
   orientation: "h",
@@ -18,8 +30,7 @@ var data = {
       color: "black",
       width: 0.5
     },
-   label: ["A1", "A2", "B1", "B2"],
-   color: ["blue", "blue", "blue", "blue"]
+   label: ["A1", "A2", "B1", "B2"]
       },
 
   link: {
