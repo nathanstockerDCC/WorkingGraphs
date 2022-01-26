@@ -31,6 +31,7 @@ NumbersDct = {}
 Numbers.push(0)
 NumbersDct[0] = Starts[0]
 AreasDone = []
+AreasDone.push(Starts[0])
 AllVals = []
 AllVals.push(...Starts)
 AllVals.push(...Ends)
@@ -62,18 +63,19 @@ for (i = 0; i < Starts.length; i++) {
   NewStarts.push(NewStartNumber)
 }
   
-for (i = 1; i < Ends.length; i++) {
+for (i = 0; i < Ends.length; i++) {
   NewEndNumber = getKeyByValue(NumbersDct,Ends[i]);
   NewEnds.push(NewEndNumber)
 }
-    
+ 
 //console.log("Starts: " + Starts)
 //console.log("Ends: " + Ends)
 //console.log("Numbers: " + Numbers)
-//console.log("NumbersDct: " + JSON.stringify(NumbersDct))
+console.log("NumbersDct: " + JSON.stringify(NumbersDct))
 console.log("NewStarts: " + NewStarts)
 console.log("NewEnds: " + NewEnds)
 console.log("Values: " + Values)
+console.log("Labels: " + AreasDone)
   
   var data = {
     type: "sankey",
@@ -81,6 +83,7 @@ console.log("Values: " + Values)
    node: {
      pad: 15,
      thickness: 30,
+     label: AreasDone,
      line: {
       color: "black",
       width: 0.5
