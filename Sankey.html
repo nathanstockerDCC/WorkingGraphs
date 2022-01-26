@@ -11,40 +11,100 @@
 <script>
 	
 d3.text("https://raw.githubusercontent.com/nathanstockerDCC/WorkingGraphs/main/CommutingPatterns.csv", function(data) {
-    var parsedCSV = d3.csv.parseRows(data);
-	console.log(parsedCSV)  
-});
-	
-var data = {
-  type: "sankey",
-  orientation: "h",
-  node: {
-    pad: 15,
-    thickness: 30,
-    line: {
+
+  var parsedCSV = d3.csv.parseRows(data);
+
+//console.log(parsedCSV)  
+
+  var Starts = [];
+var Ends = [];
+var Values = [];
+  
+for (i = 1; i < parsedCSV.length; i++) { 
+    Starts.push(parsedCSV[i][0])
+    Ends.push(parsedCSV[i][1])
+    Values.push(parsedCSV[i][2])
+}
+Numbers = []
+NumbersDct = {}
+  
+Numbers.push(0)
+NumbersDct[0] = Starts[0]
+AreasDone = []
+AllVals = []
+AllVals.push(...Starts)
+AllVals.push(...Ends)
+//console.log("AllVals: " + AllVals)
+  
+for (i = 1; i < AllVals.length; i++) {
+  if (AreasDone.includes(AllVals[i]) == false)
+  {
+//    Numbers.push(Math.max(Numbers) + 1 )
+    var NewNum = Numbers.reduce(function(a, b) {
+      return Math.max(a, b) + 1;
+     }, 0);
+    
+    Numbers.push(NewNum)
+    NumbersDct[NewNum] = AllVals[i]
+    AreasDone.push(AllVals[i])
+    }
+  }
+
+NewStarts = []
+NewEnds = []
+  
+function getKeyByValue(object, value) {
+  return Object.keys(object).find(key => object[key] === value);
+}
+  
+for (i = 0; i < Starts.length; i++) {
+  NewStartNumber = getKeyByValue(NumbersDct,Starts[i]);
+  NewStarts.push(NewStartNumber)
+}
+  
+for (i = 1; i < Ends.length; i++) {
+  NewEndNumber = getKeyByValue(NumbersDct,Ends[i]);
+  NewEnds.push(NewEndNumber)
+}
+    
+//console.log("Starts: " + Starts)
+//console.log("Ends: " + Ends)
+//console.log("Numbers: " + Numbers)
+//console.log("NumbersDct: " + JSON.stringify(NumbersDct))
+console.log("NewStarts: " + NewStarts)
+console.log("NewEnds: " + NewEnds)
+console.log("Values: " + Values)
+  
+  var data = {
+    type: "sankey",
+   orientation: "h",
+   node: {
+     pad: 15,
+     thickness: 30,
+     line: {
       color: "black",
       width: 0.5
-    },
-   label: ["A1", "A2", "B1", "B2"]
+      }
       },
 
-  link: {
-    source: [0,1,0,1],
-    target: [2,3,3,4],
-    value:  [8,4,2,8]
+    link: {
+    source: NewStarts,
+    target: NewEnds,
+    value:  Values
+    }
   }
-}
 
-var data = [data]
+  var data = [data]
 
-var layout = {
-  title: "Basic Sankey",
-  font: {
-    size: 10
+  var layout = {
+    title: "Basic Sankey",
+    font: {
+      size: 10
+    }
   }
-}
 
-Plotly.react('myDiv', data, layout)
+  Plotly.react('myDiv', data, layout)
+  });
 
 	</script>
 </body>
